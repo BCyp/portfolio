@@ -16,12 +16,19 @@ Sass:
 Sass allows the preprocessing of CSS and the inclusion of variables into CSS. This works well with bootstrap to create overall better and more dynamc CSS styles.TO get Sass to work I must install ruby irst then install Sass to my project directory.
 
 Sitemap: ![Alt text](/documentation/Sitemap.png?raw=true "SiteMap")
-WireFrames: ![Alt text](/documentation/HOMEPageWire.jpg?raw=true "Home WirePage")
+WireFrames:
+Home Page: ![Alt text](/documentation/HOMEPageWire.jpg?raw=true "Home WirePage")
+Login Page:
 ![Alt text](/documentation/LoginPageWire.jpg?raw=true "Home WirePage")
+Main Forum Page:
 ![Alt text](/documentation/ForumPageWire.jpg?raw=true "Home WirePage")
+Individual Forum Page
 ![Alt text](/documentation/ForumCreatePageWire.jpg?raw=true "Home WirePage")
+Diet List Creation Page:
 ![Alt text](/documentation/DietCreationPageWire.jpg?raw=true "Home WirePage")
+About Us page:
 ![Alt text](/documentation/AboutUSPageWire.jpg?raw=true "Home WirePage")
+Profile Page:
 ![Alt text](/documentation/MyPageWire.jpg?raw=true "Home WirePage")
 
 
