@@ -1,0 +1,12 @@
+<h2>{{username}}'s Images</h2>
+{{#if showForm}}
+<p>Add an image...</p>
+<form method="POST" action="/image/create">
+Image URL: <input type="url" name="url" value="">
+<input type="submit">
+</form>
+{{/if}}
+{{#each images}}
+<img src="{{url}}">
+{{/each}}
+<p> Add a Diet</p<

@@ -1,5 +1,6 @@
 var mongoose = require('mongoose'),
 	URLSlugs = require('mongoose-url-slugs');
+	var passportLocalMongoose = require('passport-local-mongoose');
 
 	var Item = new mongoose.Schema({
 		name: String,
@@ -14,23 +15,26 @@ var mongoose = require('mongoose'),
 		items: [Item]
 	});
 	var User = new mongoose.Schema({
-		username: String,
-		password: String,
-		forumList: [Forum],
-		height: String,
-		weight: String,
-		Goals: String,
-		lists: [List],
+		images: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Image' }],
+		lists:[]
+	});
+	var Image = new mongoose.Schema({
+		user: {type: mongoose.Schema.Types.ObjectId, ref:'User'},
+		url: {type:String, required: true},
 	});
 	var Forum = new mongoose.Schema({
-		createdBy: User
+		name: String,
+		createdBy: String,
 		date: Date,
 		text: String,
 	});
 
+	User.plugin(passportLocalMongoose);
+
 	List.plugin(URLSlugs('name'));
-	User.plugin(URLSlugs('username'));
+	Forum.plugin(URLSlugs('name'));
 	mongoose.model('User', User);
+	mongoose.model('Image', Image);
 	mongoose.model('Forum', Forum);
 	mongoose.model('List', List);
 	mongoose.model('Item', Item);

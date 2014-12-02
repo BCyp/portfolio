@@ -1,0 +1,7 @@
+<h1> {{title}}</h1>
+<h2> My Lists </h2>
+<ul> {{#each list}}
+	<a href='http://localhost:3000/list/{{this.slug}}''> <li> {{this.name}}</li>
+	</a>
+{{/each}}
+</ul>
