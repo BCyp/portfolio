@@ -2,21 +2,15 @@ var mongoose = require('mongoose'),
 	URLSlugs = require('mongoose-url-slugs');
 	var passportLocalMongoose = require('passport-local-mongoose');
 
-	var Item = new mongoose.Schema({
-		name: String,
-		quantity: 0,
-		checked: false
-	});
-	// my schema goes here!
-	
-	var List = new mongoose.Schema({
-		name: String,
+
+	var Listing = new mongoose.Schema({
+		image: { type: mongoose.Schema.Types.ObjectId, ref: 'Image' },
 		createdBy: String ,
-		items: [Item]
+		address: String
 	});
 	var User = new mongoose.Schema({
 		images: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Image' }],
-		lists:[]
+		listings:[Listing]
 	});
 	var Image = new mongoose.Schema({
 		user: {type: mongoose.Schema.Types.ObjectId, ref:'User'},
@@ -31,11 +25,9 @@ var mongoose = require('mongoose'),
 
 	User.plugin(passportLocalMongoose);
 
-	List.plugin(URLSlugs('name'));
-	Forum.plugin(URLSlugs('name'));
+	Listing.plugin(URLSlugs('address'));
 	mongoose.model('User', User);
 	mongoose.model('Image', Image);
 	mongoose.model('Forum', Forum);
-	mongoose.model('List', List);
-	mongoose.model('Item', Item);
+	mongoose.model('Listing', Listing);
 	mongoose.connect('mongodb://localhost/finaldb');

@@ -1,8 +1,11 @@
 <h2>{{username}}'s Images</h2>
 {{#if showForm}}
-<p>Add an image...</p>
+<p>Add a Listing...</p>
 <form method="POST" action="/image/create">
 Image URL: <input type="url" name="url" value="">
+Price: <input name="price">
+Address:<input name = "address">
+<input type="hidden" name="createdBy" value={{username}}>
 <input type="submit">
 </form>
 {{/if}}
