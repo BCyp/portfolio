@@ -8,20 +8,9 @@ var Listing = mongoose.model('Listing');
 /* GET home page. */
 router.get('/', function(req, res) {
 	console.log(req.body);
-  res.render('index', { title: 'Nutrition HomePage' });
+  res.render('index', { title: 'Art Gallery HomePage' });
 });
-router.get('/forums', function(req, res) {
-	console.log(req.body);
-  res.render('lists', { title: 'Forums', lists : Lists});
-});
-router.get('/list', function(req, res) {
-	console.log(req.body);
-  List.find(function(err, list, count) {
-		res.render( 'list', {
-			list: list
-		});
-	});
-});
+
 router.get('/listings', function(req, res) {
 	console.log(req.body);
   Listing.find(function(err, list, count) {
@@ -73,6 +62,11 @@ router.post('/register', function(req, res) {
 		}
 	});
 });
+router.get('/listings/:listName',function(req, res){
+	var list = Listing.findOne({slug: req.params.listName},function(err, list, count){;
+	res.render('listing', {list:list});
+	});
+});
 router.get('/users/:username', function(req, res) {
 // NOTE: use populate() to retrieve related documents and
 // embed them.... notice the call to exec, which executes
@@ -81,7 +75,7 @@ router.get('/users/:username', function(req, res) {
 // - http://mongoosejs.com/docs/api.html#query_Query-exec
 	User
 	.findOne({username: req.params.username})
-	.populate('images').exec(function(err, user) {
+	.populate('images').populate('listings').exec(function(err, user) {
 // NOTE: this allows us to conditionally show a form based
 // on whether or not they're on "their page" and if they're
 // logged in:
@@ -94,7 +88,8 @@ router.get('/users/:username', function(req, res) {
 		res.render('user', {
 			showForm: showForm,
 			images: user.images,
-			username: user.username
+			username: user.username,
+			listings:user.listings
 		});
 	});
 });
@@ -110,13 +105,15 @@ router.post('/image/create', function(req, res) {
 // saved image to add to the user's image array
 		req.user.images.push(savedImage._id);
 
-		req.user.save(function(err, savedUser, count) {
 				new Listing({
 					price : req.body.price,
-					createdBy: req.body.createdBy,
+					user: req.user._id,
 					address: req.body.address,
-					image: savedImage
+					image: savedImage,
+					createdBy: req.user.username
 				}).save(function(err, list, count){
+					req.user.listings.push(list._id);
+					req.user.save(function(err, savedUser, count) {
 			res.redirect('/users/' + req.user.username);
 			});
 		});

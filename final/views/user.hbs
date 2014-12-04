@@ -5,11 +5,33 @@
 Image URL: <input type="url" name="url" value="">
 Price: <input name="price">
 Address:<input name = "address">
-<input type="hidden" name="createdBy" value={{username}}>
+<input type="hidden" name="createdBy" value="{{username}}"">
 <input type="submit">
 </form>
 {{/if}}
 {{#each images}}
 <img src="{{url}}">
 {{/each}}
-<p> Add a Diet</p<
+{{#each listings}}
+<p> {{address}}</p>
+{{/each}}
+
+<table class = "table table-bordered table-hover"> 
+<thead>
+	<tr>
+		<th> Images</th>
+		<th> Price Range </th>
+		<th> Address</th>
+		<th>Posted By</th>
+	</tr>
+<tbody>
+{{#each listings}}
+ <tr> 
+ 	<td> <img src="{{this.image.url}}"> </td>
+ 	<td> {{this.price}}</td>
+ 	<td>{{this.address}}</td> 
+ 	<td> {{this.createdBy}}</td>
+ </tr>
+{{/each}}
+</tbody>
+</table>

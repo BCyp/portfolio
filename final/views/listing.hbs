@@ -1,5 +1,5 @@
 <h1> {{title}}</h1>
-<h2> My Listings </h2>
+<h2> Listing </h2>
 <table class = "table table-bordered table-hover"> 
 <thead>
 	<tr>
@@ -9,14 +9,12 @@
 		<th>Posted By</th>
 	</tr>
 <tbody>
-{{#each list}}
  <tr> 
  	<td> <img src="{{this.image.url}}"> </td>
- 	<td> {{this.price}}</td>
- 	<td>{{this.address}}</td> 
- 	<td> {{this.createdBy}}</td>
+ 	<td> {{list.price}}</td>
+ 	<td>{{list.address}}</td> 
+ 	<td> {{list.createdBy}}</td>
  	<td> <a href="http://localhost:3000/listings/{{slug}}"> View Page</a></td>
  </tr>
-{{/each}}
 </tbody>
 </table>
