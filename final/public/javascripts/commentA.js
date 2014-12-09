@@ -23,7 +23,7 @@ function getMessages() {
 	var req = new XMLHttpRequest(),
 
   url = 'http://localhost:3000/listings/comment';
-
+  	var listing = document.getElementById('listing').value;
   console.log(lastRetrievalDate);
 	req.open('GET', url, true);
 
@@ -32,8 +32,11 @@ function getMessages() {
       data = JSON.parse(req.responseText);
       messageList = document.getElementById('commentSection');
       data.forEach(function(msg) {
+      	if(msg.listing === listing){
         var div = messageList.appendChild(document.createElement('div'));
+        div.setAttribute('class', 'container');
         div.textContent = (new Date(msg.date)).toLocaleString() + ' - ' + msg.comment;
+    	}
       });
       console.log(data);
       

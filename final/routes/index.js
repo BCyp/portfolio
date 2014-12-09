@@ -37,7 +37,8 @@ router.get('/listings/comment', function(req, res) {
     	res.json(comments.map(function(ele) {
       		return {
         		'comment': ele.text,
-        	'date': ele.date
+        	'date': ele.date,
+        	'listing':ele.listing
       		}; 
     	}));
   	});

@@ -19,8 +19,12 @@
 </tbody>
 </table>
 <h3> Comments </h3>
-Add Comment: <input id = "newComment" name="newComment">
-<input id = "listing" type="hidden" name="listing" value="{{list.slug}}">
-<input type = "button" id="commentSubmit" type="submit" name="submit comment">
-<div id = 'commentSection'> </div>
+<div class="col-md-8">
+	 <input class="form-control" id = "newComment" name="newComment" placeholder="Comment">
+	<input id = "listing" type="hidden" name="listing" value="{{list.slug}}">
+	<input class="btn btn-default col-md-4" type = "button" id="commentSubmit"  name="submit comment" value="Submit Comment">
+</div>
+<div class='container center-block'>
+<div  class="col-md-10 " id = 'commentSection' class = 'content'> </div>
+</div>
 <script src = '/javascripts/commentA.js'></script> //* Modify DOM to Input Text Input to Create Comment *//
