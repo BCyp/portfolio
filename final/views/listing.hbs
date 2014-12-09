@@ -10,7 +10,7 @@
 	</tr>
 <tbody>
  <tr> 
- 	<td> <img src="{{this.image.url}}"> </td>
+ 	<td> <img src="{{list.image}}"> </td>
  	<td> {{list.price}}</td>
  	<td>{{list.address}}</td> 
  	<td> {{list.createdBy}}</td>
@@ -18,3 +18,9 @@
  </tr>
 </tbody>
 </table>
+<h3> Comments </h3>
+Add Comment: <input id = "newComment" name="newComment">
+<input id = "listing" type="hidden" name="listing" value="{{list.slug}}">
+<input type = "button" id="commentSubmit" type="submit" name="submit comment">
+<div id = 'commentSection'> </div>
+<script src = '/javascripts/commentA.js'></script> //* Modify DOM to Input Text Input to Create Comment *//

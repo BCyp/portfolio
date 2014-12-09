@@ -1,0 +1,48 @@
+function elemCreate( type, obj, content, child){
+	var newElement = document.createElement(type);
+	if(obj.id){
+		newElement.id =obj.id;
+	}
+	if(obj.class){
+		newElement.setAttribute('class', obj.class);
+	}
+	if(obj.style){
+		newElement.setAttribute('style', obj.style);
+	}
+	if(child){
+		newElement.appendChild(child);
+	}
+	newElement.textContent = content;
+
+	return newElement;
+
+};
+function addSubmit(){
+	var submit = document.createElement(input);
+	submit.type = 'submit';
+	submit.value = 'Submit';
+	return submit;
+};
+function addLine(){
+	var commentLine = elemCreate('input',{}, , addSubmit);
+	commentLine.name = 'newComment';
+	return commentLine;
+};
+function addForm(){
+	var commentForm = elemCreate(form, {}, , addLine())
+	commentForm.name = 'input';
+	commentForm.action = '/listingS/comment';
+	commentForm.method = 'post';
+};
+function addComment(){
+	var commentBlock = elemCreate('div',{});
+};
+function main(){
+	document.getElementById('commentButton').appendChild(addForm());
+};
+document.getElementById('commentButton').addEventListener('click', main);
+
+
+
+
+

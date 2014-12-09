@@ -1,4 +1,4 @@
-<h2>{{username}}'s Images</h2>
+<h2>{{username}}'s Works</h2>
 {{#if showForm}}
 <p>Add a Listing...</p>
 <form method="POST" action="/image/create">
@@ -27,7 +27,7 @@ Address:<input name = "address">
 <tbody>
 {{#each listings}}
  <tr> 
- 	<td> <img src="{{this.image.url}}"> </td>
+ 	<td> <img src="{{this.image}}"> </td>
  	<td> {{this.price}}</td>
  	<td>{{this.address}}</td> 
  	<td> {{this.createdBy}}</td>

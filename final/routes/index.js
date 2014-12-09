@@ -5,6 +5,7 @@ var passport = require('passport');
 var User = mongoose.model('User');
 var Image = mongoose.model('Image');
 var Listing = mongoose.model('Listing');
+var Forum = mongoose.model('Forum');
 /* GET home page. */
 router.get('/', function(req, res) {
 	console.log(req.body);
@@ -19,8 +20,28 @@ router.get('/listings', function(req, res) {
 		});
 	});
 });
-
-
+router.post('/listings/comment', function(req, res) {
+  	var comment = new Forum({
+		text: req.body.message,
+		date: Date.now(),
+		listing: req.body.listing
+	});
+ 	comment.save(function(err, savedComment, count) {
+    if (err) { return res.send(500, 'Error occurred: database error.'); }
+    res.json({id:savedComment._id, text: savedComment.text});
+    });
+});
+router.get('/listings/comment', function(req, res) {
+	console.log("got got");
+  Forum.find(function(err, comments, count) {
+    	res.json(comments.map(function(ele) {
+      		return {
+        		'comment': ele.text,
+        	'date': ele.date
+      		}; 
+    	}));
+  	});
+});
 router.get('/login', function(req, res) {
 res.render('login');
 });
@@ -63,10 +84,11 @@ router.post('/register', function(req, res) {
 	});
 });
 router.get('/listings/:listName',function(req, res){
-	var list = Listing.findOne({slug: req.params.listName},function(err, list, count){;
+	var list = Listing.findOne({slug: req.params.listName},function(err, list, count){
 	res.render('listing', {list:list});
 	});
 });
+
 router.get('/users/:username', function(req, res) {
 // NOTE: use populate() to retrieve related documents and
 // embed them.... notice the call to exec, which executes
@@ -109,7 +131,7 @@ router.post('/image/create', function(req, res) {
 					price : req.body.price,
 					user: req.user._id,
 					address: req.body.address,
-					image: savedImage,
+					image: savedImage.url,
 					createdBy: req.user.username
 				}).save(function(err, list, count){
 					req.user.listings.push(list._id);

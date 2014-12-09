@@ -4,11 +4,12 @@ var mongoose = require('mongoose'),
 
 
 	var Listing = new mongoose.Schema({
-		image: { type: mongoose.Schema.Types.ObjectId, ref: 'Image' },
+		image: {type:String, required: true},
 		createdBy: String ,
 		address: String,
 		user: {type: mongoose.Schema.Types.ObjectId, ref:'User'},
-		price : Number
+		price : Number,
+		comments: [Forum]
 	});
 	var User = new mongoose.Schema({
 		images: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Image' }],
@@ -16,14 +17,12 @@ var mongoose = require('mongoose'),
 	});
 	var Image = new mongoose.Schema({
 		user: {type: mongoose.Schema.Types.ObjectId, ref:'User'},
-		url: {type:String, required: true},
-		listing: { type: mongoose.Schema.Types.ObjectId, ref: 'Listing' }
+		url: {type:String, required: true}
 	});
 	var Forum = new mongoose.Schema({
-		name: String,
-		createdBy: String,
-		date: Date,
+		date: String,
 		text: String,
+		listing: String
 	});
 
 	User.plugin(passportLocalMongoose);
