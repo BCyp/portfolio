@@ -4,25 +4,20 @@
 <form method="POST" action="/image/create">
 Image URL: <input type="url" name="url" value="">
 Price: <input name="price">
-Address:<input name = "address">
+Title:<input name = "address">
 <input type="hidden" name="createdBy" value="{{username}}"">
 <input type="submit">
 </form>
 {{/if}}
-{{#each images}}
-<img src="{{url}}">
-{{/each}}
-{{#each listings}}
-<p> {{address}}</p>
-{{/each}}
+
 
 <table class = "table table-bordered table-hover"> 
 <thead>
 	<tr>
 		<th> Images</th>
 		<th> Price Range </th>
-		<th> Address</th>
-		<th>Posted By</th>
+		<th> Title</th>
+		<th>Page</th>
 	</tr>
 <tbody>
 {{#each listings}}
@@ -30,7 +25,7 @@ Address:<input name = "address">
  	<td> <img src="{{this.image}}"> </td>
  	<td> {{this.price}}</td>
  	<td>{{this.address}}</td> 
- 	<td> {{this.createdBy}}</td>
+ 	<td> <a href="http://localhost:3000/listings/{{slug}}"> View Page</a></td>
  </tr>
 {{/each}}
 </tbody>

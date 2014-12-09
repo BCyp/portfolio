@@ -34,7 +34,7 @@ function getMessages() {
       data.forEach(function(msg) {
       	if(msg.listing === listing){
         var div = messageList.appendChild(document.createElement('div'));
-        div.setAttribute('class', 'container');
+        div.setAttribute('class', 'row col-lg-16 forum');
         div.textContent = (new Date(msg.date)).toLocaleString() + ' - ' + msg.comment;
     	}
       });
@@ -60,6 +60,7 @@ function getMessage() {
       data = JSON.parse(req.responseText);
       messageList = document.getElementById('commentSection');
         var div = messageList.appendChild(document.createElement('div'));
+        div.setAttribute('class', 'row col-md-8 forum');
         div.textContent = (new Date(data[data.length-1].date)).toLocaleString() + ' - ' + data[data.length-1].comment;
       console.log(data);
       
