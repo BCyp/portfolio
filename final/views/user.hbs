@@ -1,13 +1,15 @@
 <h2>{{username}}'s Works</h2>
 {{#if showForm}}
 <p>Add a Listing...</p>
-<form method="POST" action="/image/create">
-Image URL: <input type="url" name="url" value="">
-Price: <input name="price">
-Title:<input name = "address">
-<input type="hidden" name="createdBy" value="{{username}}"">
-<input type="submit">
-</form>
+<div class='container'>
+	<form method="POST" action="/image/create">
+		Image URL: <input type="url" name="url" value="">
+		Price: <input name="price">
+		Title:<input name = "address">
+		<input type="hidden" name="createdBy" value="{{username}}"">
+		<input class="btn" type="submit">
+	</form>
+</div>
 {{/if}}
 
 
@@ -22,8 +24,8 @@ Title:<input name = "address">
 <tbody>
 {{#each listings}}
  <tr> 
- 	<td> <img src="{{this.image}}"> </td>
- 	<td> {{this.price}}</td>
+ 	<td> <div class='sizefx'><img src="{{this.image}}"> </div></td>
+ 	<td>$ {{this.price}}</td>
  	<td>{{this.address}}</td> 
  	<td> <a href="http://localhost:3000/listings/{{slug}}"> View Page</a></td>
  </tr>

@@ -20,7 +20,7 @@ var mongoose = require('mongoose'),
 		url: {type:String, required: true}
 	});
 	var Forum = new mongoose.Schema({
-		date: String,
+		date: Date,
 		text: String,
 		listing: String
 	});

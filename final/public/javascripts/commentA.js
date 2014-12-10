@@ -35,7 +35,7 @@ function getMessages() {
       	if(msg.listing === listing){
         var div = messageList.appendChild(document.createElement('div'));
         div.setAttribute('class', 'row col-lg-16 forum');
-        div.textContent = (new Date(msg.date)).toLocaleString() + ' - ' + msg.comment;
+        div.textContent = (new Date(msg.date)).toString() + ' - ' + msg.comment;
     	}
       });
       console.log(data);

@@ -11,8 +11,8 @@
 <tbody>
 {{#each list}}
  <tr> 
- 	<td> <img src="{{this.image}}"> </td>
- 	<td> {{this.price}}</td>
+ 	<td> <div class='sizefx'> <img src="{{this.image}}"> </div></td>
+ 	<td> $ {{this.price}}</td>
  	<td>{{this.address}}</td> 
  	<td> {{this.createdBy}}</td>
  	<td> <a href="http://localhost:3000/listings/{{slug}}"> View Page</a></td>
