@@ -1,4 +1,3 @@
-@import url(http://fonts.googleapis.com/css?family=Oswald:400,300,700);
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 html {
   font-family: sans-serif;
@@ -907,7 +906,7 @@ a {
 }
 a:hover,
 a:focus {
-  color: #23527c;
+  color: #C1b48c;
   text-decoration: underline;
 }
 a:focus {
@@ -6204,14 +6203,9 @@ button.close {
 }
 .btn {
   border-radius: 0px;
-  box-shadow: 10px 5px 5px black;
-  padding-bottom: 10px;
-  padding-top: 10px;
-  background-color: #ffff00;
 }
 .table {
   background-color: #ffff00;
-  box-shadow: 10px 5px 5px black;
 }
 .bs-docs-container {
   background-color: #C1b48c;
@@ -6223,10 +6217,6 @@ body {
   background-color: #228b22;
   font: #ffff00;
   font-size: 1.75em;
-}
-.container {
-  padding-top: 10px;
-  padding-bottom: 40px;
 }
 .navbar-collapse a:visited {
   color: #000000;
@@ -6245,24 +6235,8 @@ body {
 .table-hover > tbody > tr:hover {
   background-color: #228b22;
 }
-.navbar-nav > li:hover {
-  background-color: #ff0;
-}
-.sizefx img {
-  width: 150px;
-  height: auto;
-  -webkit-transition: all 1s ease;
-  -moz-transition: all 1s ease;
-  -o-transition: all 1s ease;
-  -ms-transition: all 1s ease;
-  transition: all 1s ease;
-}
-body {
-  font-family: 'Oswald', sans-serif;
-}
-.sizefx img:hover {
-  width: auto;
-  height: auto;
+.nav-bar > li:hover {
+  background-color: #c1b48c;
 }
 .clearfix:before,
 .clearfix:after,

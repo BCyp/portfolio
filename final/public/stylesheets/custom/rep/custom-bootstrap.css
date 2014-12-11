@@ -1,4 +1,3 @@
-@import url(http://fonts.googleapis.com/css?family=Oswald:400,300,700);
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 html {
   font-family: sans-serif;
@@ -6211,7 +6210,6 @@ button.close {
 }
 .table {
   background-color: #ffff00;
-  box-shadow: 10px 5px 5px black;
 }
 .bs-docs-container {
   background-color: #C1b48c;
@@ -6256,9 +6254,6 @@ body {
   -o-transition: all 1s ease;
   -ms-transition: all 1s ease;
   transition: all 1s ease;
-}
-body {
-  font-family: 'Oswald', sans-serif;
 }
 .sizefx img:hover {
   width: auto;

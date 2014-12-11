@@ -7,7 +7,6 @@
 }
 .table{
 	background-color: #ffff00;
-	box-shadow: 10px 5px 5px black;
 }
 .bs-docs-container{
 	background-color: #C1b48c;
