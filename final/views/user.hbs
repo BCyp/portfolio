@@ -2,12 +2,12 @@
 {{#if showForm}}
 <p>Add a Listing...</p>
 <div class='container'>
-	<form method="POST" action="/image/create">
+	<form method="POST" action="/listing/create">
 		Image URL: <input type="url" name="url" value="">
 		Price: <input name="price">
 		Title:<input name = "address">
 		<input type="hidden" name="createdBy" value="{{username}}"">
-		<input class="btn" type="submit">
+		<input class="btn" type="submit" value='Submit Listing'>
 	</form>
 </div>
 {{/if}}

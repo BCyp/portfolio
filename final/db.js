@@ -8,7 +8,7 @@ var mongoose = require('mongoose'),
 		createdBy: String ,
 		address: String,
 		user: {type: mongoose.Schema.Types.ObjectId, ref:'User'},
-		price : Number,
+		price : String,
 		comments: [Forum]
 	});
 	var User = new mongoose.Schema({

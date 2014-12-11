@@ -1,3 +1,4 @@
+@import url(http://fonts.googleapis.com/css?family=Oswald:400,300,700);
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 html {
   font-family: sans-serif;
@@ -6254,6 +6255,9 @@ body {
   -o-transition: all 1s ease;
   -ms-transition: all 1s ease;
   transition: all 1s ease;
+}
+body {
+  font-family: 'Oswald', sans-serif;
 }
 .sizefx img:hover {
   width: auto;

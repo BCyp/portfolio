@@ -97,7 +97,7 @@ router.get('/users/:username', function(req, res) {
 		});
 	});
 });
-router.post('/image/create', function(req, res) {
+router.post('/listing/create', function(req, res) {
 	var img = new Image({
 		url: req.body.url,
 		user: req.user._id
